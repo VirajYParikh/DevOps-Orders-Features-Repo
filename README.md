@@ -64,6 +64,8 @@ The test cases have at least 95% test coverage, ensuring most of the repo is cov
     * Navigate to the root of the repository, you should be in `./app`.
 2. Run `make test`. This will run all of the tests for the code within the `./tests` folder, and check for any errors.
     * Similarly, you can also run `make lint` in the root folder to test if the code conforms to PEP8 standards.
+3. Run `honcho start` to deploy the application on the local server. This is done to perform all the BDD tests that require the application to be deployed since this test involves working with the User Interface of the application and ensuring that all the buttons and front-end objects are working as per business requirements.
+4. Run `behave` to start the BDD tests only after ensuring that the application is deployed and running. This will run all the stories present in the orders.features file. 
 
 If you want to contribute to our code, here are the related guidelines: [Link](./CONTRIBUTING.md)
 
@@ -114,6 +116,11 @@ If you want to contribute to our code, here are the related guidelines: [Link](.
     * Args: by_id (int): the given item ID
    
 ### CI/CD Pipeline
+An integral aspect of DevOps is automated testing and deployment. This is where CI/CD pipelines come into the picture. Running manual quality checks on code is time-consuming and resource-heavy. It can also result in manual errors. This is where Github Actions and software like Redhat Openshift, Ansible, etc., make such processes easy and convenient. 
+
+CI (Continuous Integration): Using Github actions, we created a CI pipeline. With every pull request to the master this pipeline ran, running all the BDD and TDD tests we incorporated. This included Lint tests, Behave tests etc. 
+
+CD (Continuous Deployment): Redhat's OpenShift has made life incredibly easier for developers allowing automated deployment of the code to production. We made use of RedHat's user interface to create a pipeline and a webhook linked to the Github repository. With every pull request to the master, this pipeline ran automatically deploying the application on the server. 
 
 ## License
 
