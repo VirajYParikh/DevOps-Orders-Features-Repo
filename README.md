@@ -112,6 +112,8 @@ If you want to contribute to our code, here are the related guidelines: [Link](.
   * all() - Returns all of the items in the database
   * find(by_id) - Finds a record by it's ID
     * Args: by_id (int): the given item ID
+   
+### CI/CD Pipeline
 
 ## License
 
